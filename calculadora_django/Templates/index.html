@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora de Expresiones</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <main class="card">
+    <h1>Calculadora de Expresiones</h1>
+    <form method="post">
+      {% csrf_token %}
+      <input type="text" name="expr" placeholder="Ej: (2+3)*4" required>
+      <button type="submit">Calcular</button>
+    </form>
+
+    {% if result %}
+      <div id="result">Resultado: {{ result }}</div>
+    {% endif %}
+    {% if error %}
+      <div id="error">Error: {{ error }}</div>
+    {% endif %}
+  </main>
+</body>
+</html>

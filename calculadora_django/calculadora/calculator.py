@@ -7,15 +7,15 @@ class CalculatorError(Exception):
 class SafeEvaluator:
     """Clase para evaluar expresiones matemáticas de forma segura."""
 
-    def __init__(self):
+    def _init_(self):
         self.allowed_names = {
-            name: obj for name, obj in math.__dict__.items()
-            if not name.startswith("__")
+            name: obj for name, obj in math._dict_.items()
+            if not name.startswith("")
         }
 
     def evaluate(self, expression: str) -> float:
         try:
-            return eval(expression, {"__builtins__": None}, self.allowed_names)
+            return eval(expression, {"_builtins_": None}, self.allowed_names)
         except ZeroDivisionError:
             raise CalculatorError("Error: División por cero.")
         except Exception:
