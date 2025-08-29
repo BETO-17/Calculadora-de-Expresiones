@@ -21,5 +21,5 @@ class SafeEvaluator:
         except Exception:
             raise CalculatorError("Error: Expresión inválida.")
 # Función con el mismo nombre que antes, para no romper el resto del código
-def evapression(expr: str) -> float:
+def evaluate_expression(expr: str) -> float:
     return SafeEvaluator().evaluate(expr)
